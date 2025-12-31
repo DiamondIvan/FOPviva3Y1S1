@@ -1,6 +1,7 @@
 package com.guild.inventory.MagicInventoryItem;
 
 import java.util.List;
+//List跟array差不多，只是list的话不用define size，可以随着多variable自己增加
 
 public class MagicInventoryItem {
 
@@ -85,7 +86,9 @@ public class MagicInventoryItem {
 
         int totalStock = 0;
 
-        for (MagicInventoryItem item : items) {
+        for (int i = 0; i < items.size(); i++) {
+            MagicInventoryItem item = items.get(i);
+
             if (item.getStock() != null) {
                 totalStock += item.getStock();
             }
