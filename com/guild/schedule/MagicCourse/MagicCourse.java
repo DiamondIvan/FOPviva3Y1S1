@@ -8,7 +8,7 @@ public class MagicCourse {
     private Integer startTime;// 24-hour format
     private Integer endTime;// must be later than startTime
 
-    private static final int MAX_HOUR = 24;
+    private static final int MAX_HOUR = 2400;
     private static int totalCourses = 0;
 
     public MagicCourse() {
@@ -37,21 +37,21 @@ public class MagicCourse {
     }
 
     public String getCourseName(String courseName) {
-        if (courseName == null || courseName.trim().isEmpty()) 
+        if (courseName == null || courseName.trim().isEmpty())
             throw new IllegalArgumentException("Course name cannot be empty");
         else
             return courseName;
     }
 
     public void setCourseName(String courseName) {
-        if (startTime >= endTime) 
+        if (startTime >= endTime)
             throw new IllegalArgumentException("Course end time must be later than start time");
         else
             this.courseName = courseName;
     }
 
     public String getDayOfWeek(String dayOfWeek) {
-        if (startTime < 0 || startTime > MAX_HOUR || endTime < 0 || endTime > MAX_HOUR) 
+        if (startTime < 0 || startTime > MAX_HOUR || endTime < 0 || endTime > MAX_HOUR)
             throw new IllegalArgumentException("Time out of valid range");
         else
             return dayOfWeek;
