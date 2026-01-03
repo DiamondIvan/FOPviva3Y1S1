@@ -37,15 +37,24 @@ public class MagicCourse {
     }
 
     public String getCourseName(String courseName) {
-        return courseName;
+        if (courseName == null || courseName.trim().isEmpty()) 
+            throw new IllegalArgumentException("Course name cannot be empty");
+        else
+            return courseName;
     }
 
     public void setCourseName(String courseName) {
-        this.courseName = courseName;
+        if (startTime >= endTime) 
+            throw new IllegalArgumentException("Course end time must be later than start time");
+        else
+            this.courseName = courseName;
     }
 
     public String getDayOfWeek(String dayOfWeek) {
-        return dayOfWeek;
+        if (startTime < 0 || startTime > MAX_HOUR || endTime < 0 || endTime > MAX_HOUR) 
+            throw new IllegalArgumentException("Time out of valid range");
+        else
+            return dayOfWeek;
     }
 
     public void setDayOfWeek(String dayOfWeek) {
@@ -85,7 +94,7 @@ public class MagicCourse {
     }
 
     public static Integer countConflicts(List<MagicCourse> courseList) {
-        if (courseList.isEmpty() || courseList == null) {
+        if (courseList == null || courseList.isEmpty()) {
             return null;
         }
         int conflictCount = 0;
