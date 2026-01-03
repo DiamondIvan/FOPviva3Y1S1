@@ -5,30 +5,18 @@ import java.util.List;
 
 public class MagicInventoryItem {
 
-    // ----------------------------
-    // Instance Variables
-    // ----------------------------
-    private String itemId; // Unique identifier
-    private Integer stock; // Can be null
+    private String itemId;
+    private Integer stock;
 
-    // ----------------------------
-    // Static Variables
-    // ----------------------------
     private static final int MAX_STOCK = 1000;
     private static int totalItems = 0;
 
-    // ----------------------------
-    // No-Argument Constructor
-    // ----------------------------
     public MagicInventoryItem() {
         this.itemId = "Unnamed Magic Item";
         this.stock = null;
         totalItems++;
     }
 
-    // ----------------------------
-    // Parameterized Constructor
-    // ----------------------------
     public MagicInventoryItem(String itemId, int stock) {
         setItemId(itemId);
 
@@ -43,9 +31,6 @@ public class MagicInventoryItem {
         totalItems++;
     }
 
-    // ----------------------------
-    // Getter and Setter for itemId
-    // ----------------------------
     public String getItemId() {
         return itemId;
     }
@@ -57,31 +42,25 @@ public class MagicInventoryItem {
         this.itemId = itemId;
     }
 
-    // ----------------------------
-    // Getter and Setter for stock
-    // ----------------------------
     public Integer getStock() {
         return stock;
     }
 
     public void setStock(int stock) {
-        if (stock < 0 || stock > MAX_STOCK) {
-            throw new IllegalArgumentException(
-                    "Stock must be between 0 and " + MAX_STOCK);
+        if (stock < 0) {
+            throw new IllegalArgumentException("Stock cannot be negative");
         }
-        this.stock = stock;
+
+        this.stock = Math.min(stock, MAX_STOCK);
     }
 
-    // ----------------------------
-    // Static Methods
-    // ----------------------------
     public static int getTotalItems() {
         return totalItems;
     }
 
     public static Integer calculateTotalStock(List<MagicInventoryItem> items) {
         if (items == null || items.isEmpty()) {
-            return null;
+            return 0;
         }
 
         int totalStock = 0;

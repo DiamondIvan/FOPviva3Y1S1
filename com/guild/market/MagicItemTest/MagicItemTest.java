@@ -1,5 +1,7 @@
-package com.guild.market.MagicItem.MagicItemTest;
+package com.guild.market.MagicItemTest;
+
 import com.guild.market.MagicItem.MagicItem;
+
 public class MagicItemTest {
 
     public static void main(String[] args) {
@@ -11,7 +13,7 @@ public class MagicItemTest {
         // Create MagicItem objects using parameterized constructor
         MagicItem item3 = new MagicItem("Healing Potion(Silver)", 50.0);
         MagicItem item4 = new MagicItem("Flying Boots(Gold)", 120.0);
-        MagicItem item6= new MagicItem("Enchanted Invisibility Scrolls(Platinum)", 688.0);
+        MagicItem item6 = new MagicItem("Enchanted Invisibility Scrolls(Platinum)", 688.0);
         // Display initial values
         System.out.println("Item1 Name: " + item1.getName());
         System.out.println();
@@ -28,11 +30,10 @@ public class MagicItemTest {
         // Test setMagicPrice with valid value
         item1.setMagicPrice(30.0);
         System.out.println("Item1 Price is: " + item1.getMagicPrice());
-        //Test setName
+        // Test setName
         item2.setName("Mystic Wand(???)(Broken elder wand)");
         System.out.println("Item2 Name is: " + item2.getName());
-      
-        
+
         // Test setMagicPrice with invalid value
         try {
             item2.setMagicPrice(-15.0);
@@ -51,7 +52,7 @@ public class MagicItemTest {
         double totalPrice1 = MagicItem.calculateTotal(50.0, 3);
         double totalPrice2 = MagicItem.calculateTotal(120.0, 2);
         double totalPrice3 = MagicItem.calculateTotal(688.0, 1);
-        
+
         System.out.println("Total price for 3 Healing Potions(Silver) (with tax): " + totalPrice1);
         System.out.println("Total price for 2 Flying Boots(Gold) (with tax): " + totalPrice2);
         System.out.println("Total price for 1 Enchanted Invisibility Scrolls(Platinum) (with tax): " + totalPrice3);
