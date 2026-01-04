@@ -23,10 +23,11 @@ public class MagicInventoryItemTest {
         System.out.println("Item 2 (Normal): ID = " + item2.getItemId() + " | Stock = " + item2.getStock());
 
         // C. Parameterized constructor (Testing Automatic Truncation)
-        // Your friend's code automatically changes stock > 1000 to 1000 in the constructor
+        // Your friend's code automatically changes stock > 1000 to 1000 in the
+        // constructor
         System.out.println("Creating Item 3 with stock 1500 (Expect Truncation to 1000)...");
         MagicInventoryItem item3 = new MagicInventoryItem("Potion-B", 1500);
-        
+
         if (item3.getStock() != null && item3.getStock() == 1000) {
             System.out.println("-> SUCCESS: Stock truncated to " + item3.getStock());
         } else {
@@ -60,7 +61,7 @@ public class MagicInventoryItemTest {
         // Note: the Constructor truncates, but setStock THROWS an exception for > 1000.
         try {
             System.out.print("Attempting to set stock > 1000 (1200)... ");
-            item1.setStock(1200); 
+            item1.setStock(1200);
             System.out.println("Failed (Should have thrown exception).");
         } catch (IllegalArgumentException e) {
             System.out.println("Caught Expected Exception: " + e.getMessage());
@@ -70,7 +71,7 @@ public class MagicInventoryItemTest {
         // Requirement 3: calculateTotalStock()
         // ---------------------------------------------------------
         System.out.println("\n3. Testing calculateTotalStock():");
-        
+
         List<MagicInventoryItem> inventory = new ArrayList<>();
 
         // Case A: Empty List
@@ -81,9 +82,9 @@ public class MagicInventoryItemTest {
         System.out.println("Total Stock (1 Item): " + MagicInventoryItem.calculateTotalStock(inventory));
 
         // Case C: Multiple Items
-        inventory.add(item1); // Stock is 200
+        inventory.add(item1); // Stock is 1000（set from 200 to 1000 just now)
         inventory.add(item3); // Stock is 1000
-        // Total = 500 + 200 + 1000 = 1700
+        // Total = 500 + 1000 + 1000 = 2500
         System.out.println("Total Stock (3 Items): " + MagicInventoryItem.calculateTotalStock(inventory));
 
         // ---------------------------------------------------------

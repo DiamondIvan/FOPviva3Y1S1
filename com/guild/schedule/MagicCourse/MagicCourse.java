@@ -11,7 +11,7 @@ public class MagicCourse {
     // Integer allows this to be 'null' initially
 
     // Static variables belong to the Class, not the objects
-    private static final int MAX_HOUR = 2400;
+    private static final int MAX_HOUR = 24;
     private static int totalCourses = 0;// Increments every time 'new MagicCourse()' is called
 
     // NO-ARG CONSTRUCTOR
@@ -72,9 +72,11 @@ public class MagicCourse {
     public void setStartTime(Integer startTime) {
         // Validation for the 0-2400 range
         if (startTime < 0 || startTime > MAX_HOUR) {
-            throw new IllegalArgumentException("Start time must be before end time");
+            throw new IllegalArgumentException("Start time out of range");
+        } else {
+            this.startTime = startTime;
         }
-        this.startTime = startTime;
+
     }
 
     public Integer getStartTime() {
@@ -83,13 +85,15 @@ public class MagicCourse {
 
     public void setEndTime(Integer endTime) {
         // Validation
-        if (this.startTime != null && endTime <= this.startTime) {
-            throw new IllegalArgumentException("End time must be after start time");
-        }
+
         if (endTime < 0 || endTime > MAX_HOUR) {
             throw new IllegalArgumentException("End time out of range");
+        } else if (this.startTime != null && endTime <= this.startTime) {
+            throw new IllegalArgumentException("End time must be after start time");
+        } else {
+            this.endTime = endTime;
         }
-        this.endTime = endTime;
+
     }
 
     public Integer getEndTime() {
