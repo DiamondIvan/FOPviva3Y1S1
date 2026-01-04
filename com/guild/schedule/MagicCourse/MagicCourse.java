@@ -63,9 +63,12 @@ public class MagicCourse {
     }
 
     public void setDayOfWeek(String dayOfWeek) {
-        if (dayOfWeek == null || dayOfWeek.trim().isEmpty())
+        if (dayOfWeek == null || dayOfWeek.trim().isEmpty()){
             throw new IllegalArgumentException("Day of week cannot be empty");
-        else
+        }
+        else if (this.endTime != null && startTime >= this.endTime) {
+            throw new IllegalArgumentException("Start time must be before end time");
+        } else
             this.dayOfWeek = dayOfWeek;
     }
 
