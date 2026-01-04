@@ -57,7 +57,7 @@ public class MagicInventoryItemTest {
         }
 
         // Invalid: Stock > 1000
-        // Note: In your friend's code, the Constructor truncates, but setStock THROWS an exception for > 1000.
+        // Note: the Constructor truncates, but setStock THROWS an exception for > 1000.
         try {
             System.out.print("Attempting to set stock > 1000 (1200)... ");
             item1.setStock(1200); 
