@@ -51,10 +51,12 @@ public class MagicInventoryItem {
     public void setStock(int stock) {
         if (stock < 0) {
             throw new IllegalArgumentException("Stock cannot be negative");
+        } else if (stock > MAX_STOCK) {
+            // Fix: Inform the user instead of silently changing their data
+            throw new IllegalArgumentException("Stock cannot exceed " + MAX_STOCK);
+        } else {
+            this.stock = stock;
         }
-
-        // Enforce maximum stock limit
-        this.stock = Math.min(stock, MAX_STOCK);
     }
 
     public static int getTotalItems() {
