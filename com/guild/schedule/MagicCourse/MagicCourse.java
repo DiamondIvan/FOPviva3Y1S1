@@ -63,10 +63,9 @@ public class MagicCourse {
     }
 
     public void setDayOfWeek(String dayOfWeek) {
-        if (dayOfWeek == null || dayOfWeek.trim().isEmpty()){
+        if (dayOfWeek == null || dayOfWeek.trim().isEmpty()) {
             throw new IllegalArgumentException("Day of week cannot be empty");
-        }
-        else if (this.endTime != null && startTime >= this.endTime) {
+        } else if (this.endTime != null && startTime >= this.endTime) {
             throw new IllegalArgumentException("Start time must be before end time");
         } else
             this.dayOfWeek = dayOfWeek;
@@ -109,6 +108,7 @@ public class MagicCourse {
 
     // STATIC CLASS METHODS
     // hasConflict() compares two courses to see if they overlap
+    // helper method for countConflicts
     public static boolean hasConflict(MagicCourse c1, MagicCourse c2) {
         if (c1.startTime == null || c1.endTime == null || c2.startTime == null || c2.endTime == null) {
             throw new IllegalArgumentException("Course time cannot be null");

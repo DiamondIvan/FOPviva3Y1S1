@@ -1,24 +1,26 @@
 package com.guild.inventory.MagicInventoryItem;
 
-import java.util.List;
-//List跟array差不多，只是list的话不用define size，可以随着多variable自己增加
+// Necessary import for List
+import java.util.*;
 
 public class MagicInventoryItem {
-
+    // Instance Variables
     private String itemId;
     private Integer stock;
-
+    // Static Variables
     private static final int MAX_STOCK = 1000;
     private static int totalItems = 0;
 
+    // Constructors
     public MagicInventoryItem() {
         this.itemId = "Unnamed Magic Item";
         this.stock = null;
         totalItems++;
     }
 
+    // Parameterized Constructor
     public MagicInventoryItem(String itemId, int stock) {
-        setItemId(itemId);
+        this.itemId = itemId;
 
         if (stock > MAX_STOCK) {
             this.stock = MAX_STOCK;
@@ -51,6 +53,7 @@ public class MagicInventoryItem {
             throw new IllegalArgumentException("Stock cannot be negative");
         }
 
+        // Enforce maximum stock limit
         this.stock = Math.min(stock, MAX_STOCK);
     }
 
@@ -65,6 +68,7 @@ public class MagicInventoryItem {
 
         int totalStock = 0;
 
+        // Calculate total stock
         for (int i = 0; i < items.size(); i++) {
             MagicInventoryItem item = items.get(i);
 

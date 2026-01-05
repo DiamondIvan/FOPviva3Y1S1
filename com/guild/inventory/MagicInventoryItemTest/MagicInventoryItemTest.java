@@ -1,8 +1,7 @@
 package com.guild.inventory.MagicInventoryItemTest;
 
 import com.guild.inventory.MagicInventoryItem.MagicInventoryItem;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class MagicInventoryItemTest {
 
