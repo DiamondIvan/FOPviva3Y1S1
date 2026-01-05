@@ -72,7 +72,7 @@ public class MagicCourse {
     }
 
     public void setStartTime(Integer startTime) {
-        // Validation for the 0-2400 range
+        // Validation for the 0-24 range
         if (startTime < 0 || startTime > MAX_HOUR) {
             throw new IllegalArgumentException("Start time out of range");
         } else {
